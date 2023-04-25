@@ -1,6 +1,7 @@
 package gr.upatras.ceid.catangame.model.board;
 
 import gr.upatras.ceid.catangame.Constants;
+import gr.upatras.ceid.catangame.enums.Terrain;
 import gr.upatras.ceid.catangame.model.building.Buildable;
 
 import java.util.ArrayList;

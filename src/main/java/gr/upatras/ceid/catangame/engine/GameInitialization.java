@@ -9,7 +9,6 @@ import gr.upatras.ceid.catangame.model.player.Player;
 import java.util.ArrayList;
 
 public class GameInitialization {
-    
     public GameInitialization() {
         var players = new ArrayList<Player>();
         var resourceCards = new ArrayList<ResourceCard>();
@@ -17,6 +16,4 @@ public class GameInitialization {
         var board = new Board();
         new Game(players, resourceCards, developmentCards, board);
     }
-    
-    
 }

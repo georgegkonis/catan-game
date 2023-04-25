@@ -1,5 +1,6 @@
 package gr.upatras.ceid.catangame.model.player;
 
+import gr.upatras.ceid.catangame.enums.Color;
 import gr.upatras.ceid.catangame.model.card.development.DevelopmentCard;
 import gr.upatras.ceid.catangame.model.card.resource.ResourceCard;
 

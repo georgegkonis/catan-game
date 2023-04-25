@@ -1,6 +1,4 @@
-package gr.upatras.ceid.catangame.model.board;
-
-import gr.upatras.ceid.catangame.model.card.resource.Resource;
+package gr.upatras.ceid.catangame.enums;
 
 public enum Terrain {
     
