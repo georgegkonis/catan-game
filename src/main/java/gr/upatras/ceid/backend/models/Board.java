@@ -2,12 +2,12 @@ package gr.upatras.ceid.backend.models;
 
 import lombok.Data;
 
-import java.util.Map;
+import java.util.List;
 
 @Data
 public class Board {
-    private Long id;
-    private Map<Long, HexTile> hexTiles;
-    private Map<Long, Node> nodes;
-    private Map<Long, Edge> edges;
+    private String id;
+    private List<Tile> tiles;
+    private List<Node> nodes;
+    private List<Edge> edges;
 }

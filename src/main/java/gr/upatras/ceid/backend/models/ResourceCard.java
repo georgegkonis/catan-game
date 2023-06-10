@@ -5,7 +5,12 @@ import lombok.Data;
 
 @Data
 public class ResourceCard {
-    private Long id;
-    private Resource resource;
+    private final String id;
+    private final Resource resource;
     private String owner;
+
+    public ResourceCard(String id, Resource resource) {
+        this.id = id;
+        this.resource = resource;
+    }
 }

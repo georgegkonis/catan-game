@@ -1,5 +1,6 @@
 package gr.upatras.ceid.backend.enums;
 
+import gr.upatras.ceid.backend.constants.GameConstants;
 import gr.upatras.ceid.backend.exceptions.DessertDoesNotProduceResourcesException;
 
 /**
@@ -7,7 +8,7 @@ import gr.upatras.ceid.backend.exceptions.DessertDoesNotProduceResourcesExceptio
  * no resources.
  */
 public enum Terrain {
-    DESSERT, FOREST, HILLS, MOUNTAINS, PASTURE, FIELDS;
+    DESSERT, FOREST, HILL, MOUNTAIN, PASTURE, FIELD;
 
 
     /**
@@ -19,11 +20,22 @@ public enum Terrain {
     public Resource getResource() throws DessertDoesNotProduceResourcesException {
         return switch (this) {
             case FOREST -> Resource.LUMBER;
-            case HILLS -> Resource.BRICK;
-            case MOUNTAINS -> Resource.ORE;
+            case HILL -> Resource.BRICK;
+            case MOUNTAIN -> Resource.ORE;
             case PASTURE -> Resource.WOOL;
-            case FIELDS -> Resource.GRAIN;
+            case FIELD -> Resource.GRAIN;
             case DESSERT -> throw new DessertDoesNotProduceResourcesException();
+        };
+    }
+
+    public int getQuantity() {
+        return switch (this) {
+            case FOREST -> GameConstants.FOREST_TILES;
+            case HILL -> GameConstants.HILL_TILES;
+            case MOUNTAIN -> GameConstants.MOUNTAIN_TILES;
+            case PASTURE -> GameConstants.PASTURE_TILES;
+            case FIELD -> GameConstants.FIELD_TILES;
+            case DESSERT -> GameConstants.DESSERT_TILES;
         };
     }
 }

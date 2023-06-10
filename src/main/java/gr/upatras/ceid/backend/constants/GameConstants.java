@@ -9,22 +9,22 @@ public class GameConstants {
 
     public static final int TOTAL_TILES = 19;
     public static final int DESSERT_TILES = 1;
-    public static final int HILLS_TILES = 3;
-    public static final int MOUNTAINS_TILES = 3;
+    public static final int HILL_TILES = 3;
+    public static final int MOUNTAIN_TILES = 3;
     public static final int FOREST_TILES = 4;
-    public static final int FIELDS_TILES = 4;
     public static final int PASTURE_TILES = 4;
+    public static final int FIELD_TILES = 4;
 
     //endregion
 
     //region Resource Cards
 
     public static final int TOTAL_RESOURCE_CARDS = 95;
-    public static final int WOOD_RESOURCE_CARDS = 19;
+    public static final int LUMBER_RESOURCE_CARDS = 19;
     public static final int BRICK_RESOURCE_CARDS = 19;
-    public static final int WHEAT_RESOURCE_CARDS = 19;
-    public static final int SHEEP_RESOURCE_CARDS = 19;
-    public static final int STONE_RESOURCE_CARDS = 19;
+    public static final int GRAIN_RESOURCE_CARDS = 19;
+    public static final int WOOL_RESOURCE_CARDS = 19;
+    public static final int ORE_RESOURCE_CARDS = 19;
 
     //endregion
 
@@ -53,10 +53,9 @@ public class GameConstants {
 
     //region Buildings
 
-    public static final int TOTAL_BUILDINGS = 54;
-    public static final int SETTLEMENT_BUILDINGS = 20;
-    public static final int CITY_BUILDINGS = 20;
-    public static final int ROAD_BUILDINGS = 14;
+    public static final int SETTLEMENTS = 5;
+    public static final int CITIES = 4;
+    public static final int ROADS = 15;
 
     //endregion
 

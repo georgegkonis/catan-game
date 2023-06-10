@@ -1,16 +1,12 @@
 package gr.upatras.ceid.backend.models;
 
-import gr.upatras.ceid.backend.enums.Color;
 import lombok.Data;
 
 import java.util.List;
 
 @Data
-public class Player {
+public class Bank {
     private String id;
-    private String userId;
-    private String name;
-    private Color color;
     private List<DevelopmentCard> developmentCards;
     private List<ResourceCard> resourceCards;
 }

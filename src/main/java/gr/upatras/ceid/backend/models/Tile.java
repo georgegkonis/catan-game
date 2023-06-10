@@ -1,19 +1,20 @@
 package gr.upatras.ceid.backend.models;
 
-import gr.upatras.ceid.backend.enums.Color;
 import gr.upatras.ceid.backend.enums.NumberToken;
 import gr.upatras.ceid.backend.enums.Terrain;
 import lombok.Data;
 
 import java.util.List;
+import java.util.Map;
 
 @Data
-public class HexTile {
-    private Long id;
+public class Tile {
+    private String id;
     private NumberToken value;
-    private Color color;
     private Terrain terrain;
+    private Integer row;
+    private Integer col;
     private List<Long> nodeIds;
-    private Double x;
-    private Double y;
+    private Map<String, Node> cornerNodes;
+    private Map<String, Edge> sideEdges;
 }
