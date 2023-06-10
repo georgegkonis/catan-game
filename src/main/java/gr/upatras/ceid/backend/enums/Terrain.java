@@ -1,7 +1,7 @@
 package gr.upatras.ceid.backend.enums;
 
 import gr.upatras.ceid.backend.constants.GameConstants;
-import gr.upatras.ceid.backend.exceptions.operation.DessertDoesNotProduceResourcesException;
+import gr.upatras.ceid.backend.exceptions.DessertDoesNotProduceResourcesException;
 
 /**
  * Enumerates the terrains of the game. Each terrain produces a specific resource, except for the dessert which produces
