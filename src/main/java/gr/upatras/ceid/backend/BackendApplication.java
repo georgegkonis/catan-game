@@ -6,8 +6,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.PropertySource;
 
 @SpringBootApplication
+@PropertySource(value = "classpath:application.properties")
 public class BackendApplication {
 
     public static void main(String[] args) {
@@ -17,9 +19,8 @@ public class BackendApplication {
     @Bean
     CommandLineRunner runner(SessionRepository repository) {
         return args -> {
-            Session session = new Session();
-
-            repository.insert(session);
+            Session entity = new Session();
+            repository.insert(entity);
         };
     }
 }
