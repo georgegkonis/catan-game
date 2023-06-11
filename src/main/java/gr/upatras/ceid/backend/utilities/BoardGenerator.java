@@ -1,4 +1,4 @@
-package gr.upatras.ceid.backend.util;
+package gr.upatras.ceid.backend.utilities;
 
 import gr.upatras.ceid.backend.enums.NumberToken;
 import gr.upatras.ceid.backend.enums.Terrain;
