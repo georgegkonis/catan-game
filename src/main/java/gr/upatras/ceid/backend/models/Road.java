@@ -5,6 +5,5 @@ import lombok.Data;
 
 @Data
 public class Road {
-    private Long id;
     private Color color;
 }
