@@ -22,7 +22,7 @@ public class GameConfig {
     CommandLineRunner runner(SessionRepository sessionRepository, UserRepository userRepository) {
         return args -> {
             sessionRepository.save(new Session("id", 0));
-            userRepository.save(new User());
+            userRepository.save(new User("id"));
         };
     }
 }
