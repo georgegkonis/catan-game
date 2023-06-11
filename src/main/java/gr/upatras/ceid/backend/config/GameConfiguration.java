@@ -1,4 +1,4 @@
-package gr.upatras.ceid.backend.configuration;
+package gr.upatras.ceid.backend.config;
 
 import gr.upatras.ceid.backend.model.Session;
 import gr.upatras.ceid.backend.provider.IdProvider;

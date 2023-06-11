@@ -1,4 +1,4 @@
-package gr.upatras.ceid.backend.domain.responses.session;
+package gr.upatras.ceid.backend.domain.response.session;
 
 // TODO: Implement
 public record GetSessionResponse(String id) {

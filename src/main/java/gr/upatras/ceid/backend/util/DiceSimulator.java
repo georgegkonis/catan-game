@@ -1,4 +1,4 @@
-package gr.upatras.ceid.backend.utility;
+package gr.upatras.ceid.backend.util;
 
 import org.springframework.stereotype.Component;
 

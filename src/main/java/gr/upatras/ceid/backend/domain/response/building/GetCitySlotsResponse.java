@@ -1,4 +1,4 @@
-package gr.upatras.ceid.backend.domain.responses.building;
+package gr.upatras.ceid.backend.domain.response.building;
 
 import java.util.List;
 

@@ -1,9 +1,14 @@
 package gr.upatras.ceid.backend.model.colony;
 
 import gr.upatras.ceid.backend.enums.Color;
-import lombok.Data;
+import lombok.Getter;
 
-@Data
+@Getter
 public abstract class Colony {
-    protected Color color;
+
+    protected final Color color;
+
+    public Colony(Color color) {
+        this.color = color;
+    }
 }

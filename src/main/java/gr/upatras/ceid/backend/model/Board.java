@@ -10,7 +10,8 @@ import java.util.Objects;
 
 @Data
 public class Board {
-    private String id;
+
+    private final String id;
     private List<Tile> tiles;
     private List<Node> nodes;
     private List<Edge> edges;

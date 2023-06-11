@@ -1,13 +1,16 @@
 package gr.upatras.ceid.backend.model;
 
 import gr.upatras.ceid.backend.enums.Port;
+import gr.upatras.ceid.backend.model.colony.City;
 import gr.upatras.ceid.backend.model.colony.Colony;
+import gr.upatras.ceid.backend.model.colony.Settlement;
 import lombok.Data;
 
 import java.util.List;
 
 @Data
 public class Node {
+
     private String id;
     private Colony colony;
     private Port port;
@@ -15,11 +18,6 @@ public class Node {
     private List<String> tileIds;
     private Integer row;
     private Integer col;
-
-    public Node(Integer row, Integer col) {
-        this.row = row;
-        this.col = col;
-    }
 
     public boolean hasEdge(String edgeId) {
         return edgeIds.contains(edgeId);
@@ -33,6 +31,13 @@ public class Node {
         return colony != null;
     }
 
+    public boolean hasSettlement() {
+        return hasColony() && colony instanceof Settlement;
+    }
+
+    public boolean hasCity() {
+        return hasColony() && colony instanceof City;
+    }
 
     public boolean hasPort() {
         return port != null;

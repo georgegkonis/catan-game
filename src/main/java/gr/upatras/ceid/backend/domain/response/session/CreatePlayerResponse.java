@@ -1,11 +1,12 @@
-package gr.upatras.ceid.backend.domain.requests.sessions;
+package gr.upatras.ceid.backend.domain.response.session;
 
 import gr.upatras.ceid.backend.enums.Color;
 
-public record CreatePlayerRequest(
-        String id,
+public record CreatePlayerResponse(
+        String playerId,
         String userId,
         String playerName,
         Color playerColor
 ) {
+
 }

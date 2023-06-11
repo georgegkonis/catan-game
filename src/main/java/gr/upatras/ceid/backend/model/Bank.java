@@ -1,6 +1,7 @@
 package gr.upatras.ceid.backend.model;
 
 import gr.upatras.ceid.backend.enums.Color;
+import gr.upatras.ceid.backend.enums.Resource;
 import gr.upatras.ceid.backend.exception.insufficient.*;
 import gr.upatras.ceid.backend.model.colony.City;
 import gr.upatras.ceid.backend.model.colony.Settlement;
@@ -11,7 +12,6 @@ import java.util.List;
 @Data
 public class Bank {
 
-    private String id;
     private List<Road> roads;
     private List<Settlement> settlements;
     private List<City> cities;
@@ -46,14 +46,17 @@ public class Bank {
     }
 
     public DevelopmentCard removeDevelopmentCard() {
-        DevelopmentCard card = developmentCards.remove(0);
-        if (card == null) throw new InsufficientDevelopmentCardsException();
-        return card;
+        if (developmentCards.isEmpty()) throw new InsufficientDevelopmentCardsException();
+        return developmentCards.remove(0);
     }
 
-    public ResourceCard removeResourceCard() {
-        ResourceCard card = resourceCards.remove(0);
-        if (card == null) throw new InsufficientResourceCardsException();
-        return card;
+    public List<ResourceCard> removeResourceCards(Resource resource, int amount) {
+        List<ResourceCard> resourceCards = this.resourceCards.stream()
+                .filter(card -> card.getResource() == resource)
+                .limit(amount)
+                .toList();
+        if (resourceCards.size() < amount) throw new InsufficientResourceCardsException();
+        this.resourceCards.removeIf(resourceCards::contains);
+        return resourceCards;
     }
 }

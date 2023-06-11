@@ -1,11 +1,11 @@
 package gr.upatras.ceid.backend.controller;
 
-import gr.upatras.ceid.backend.domain.requests.buildings.ConstructCityRequest;
-import gr.upatras.ceid.backend.domain.requests.buildings.ConstructRoadRequest;
-import gr.upatras.ceid.backend.domain.requests.buildings.ConstructSettlementRequest;
-import gr.upatras.ceid.backend.domain.responses.building.GetCitySlotsResponse;
-import gr.upatras.ceid.backend.domain.responses.building.GetRoadSlotsResponse;
-import gr.upatras.ceid.backend.domain.responses.building.GetSettlementSlotsResponse;
+import gr.upatras.ceid.backend.domain.request.buildings.ConstructCityRequest;
+import gr.upatras.ceid.backend.domain.request.buildings.ConstructRoadRequest;
+import gr.upatras.ceid.backend.domain.request.buildings.ConstructSettlementRequest;
+import gr.upatras.ceid.backend.domain.response.building.GetCitySlotsResponse;
+import gr.upatras.ceid.backend.domain.response.building.GetRoadSlotsResponse;
+import gr.upatras.ceid.backend.domain.response.building.GetSettlementSlotsResponse;
 import gr.upatras.ceid.backend.service.BuildingsService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -14,13 +14,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/buildings")
+@RequestMapping("api/v1/sessions/{sessionId}/buildings")
 @AllArgsConstructor
 public class BuildingsController {
 
     private final BuildingsService buildingsService;
 
-    @GetMapping("/{sessionId}/road-slots")
+    @GetMapping("/road-slots")
     public ResponseEntity<GetRoadSlotsResponse> getRoadSlots(
             @PathVariable String sessionId,
             @RequestParam String playerId) {
@@ -32,7 +32,7 @@ public class BuildingsController {
         return ResponseEntity.ok().body(response);
     }
 
-    @GetMapping("/{sessionId}/settlement-slots")
+    @GetMapping("/settlement-slots")
     public ResponseEntity<GetSettlementSlotsResponse> getSettlementSlots(
             @PathVariable String sessionId,
             @RequestParam String playerId) {
@@ -44,7 +44,7 @@ public class BuildingsController {
         return ResponseEntity.ok().body(response);
     }
 
-    @GetMapping("/{sessionId}/city-slots")
+    @GetMapping("/city-slots")
     public ResponseEntity<GetCitySlotsResponse> getCitySlots(
             @PathVariable String sessionId,
             @RequestParam String playerId) {
@@ -56,7 +56,7 @@ public class BuildingsController {
         return ResponseEntity.ok().body(response);
     }
 
-    @PatchMapping("/{sessionId}/roads")
+    @PatchMapping("/roads")
     public ResponseEntity<Void> buildRoad(
             @PathVariable String sessionId,
             @RequestBody ConstructRoadRequest request) {
@@ -66,7 +66,7 @@ public class BuildingsController {
         return ResponseEntity.noContent().build();
     }
 
-    @PatchMapping("/{sessionId}/settlements")
+    @PatchMapping("/settlements")
     public ResponseEntity<?> buildSettlement(
             @PathVariable String sessionId,
             @RequestBody ConstructSettlementRequest request) {
@@ -76,7 +76,7 @@ public class BuildingsController {
         return ResponseEntity.noContent().build();
     }
 
-    @PatchMapping("/{sessionId}/cities")
+    @PatchMapping("/cities")
     public ResponseEntity<?> buildCity(
             @PathVariable String sessionId,
             @RequestBody ConstructCityRequest request) {

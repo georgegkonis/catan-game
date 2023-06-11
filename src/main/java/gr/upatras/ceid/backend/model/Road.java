@@ -1,9 +1,10 @@
 package gr.upatras.ceid.backend.model;
 
 import gr.upatras.ceid.backend.enums.Color;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
 public class Road {
-    private Color color;
+    private final Color color;
 }

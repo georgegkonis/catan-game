@@ -1,4 +1,4 @@
-package gr.upatras.ceid.backend.domain.requests.sessions;
+package gr.upatras.ceid.backend.domain.request.sessions;
 
 public record CreateSessionRequest(
         Boolean dessertCentered,

@@ -9,6 +9,7 @@ import java.util.Map;
 
 @Data
 public class Tile {
+
     private String id;
     private NumberToken value;
     private Terrain terrain;
@@ -17,4 +18,12 @@ public class Tile {
     private List<Long> nodeIds;
     private Map<String, Node> cornerNodes;
     private Map<String, Edge> sideEdges;
+
+    public boolean hasNode(String nodeId) {
+        return true;
+    }
+
+    public boolean hasEdge(String edgeId) {
+        return true;
+    }
 }
