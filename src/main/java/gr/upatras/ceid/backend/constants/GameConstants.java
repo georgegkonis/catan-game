@@ -5,6 +5,10 @@ package gr.upatras.ceid.backend.constants;
  */
 public class GameConstants {
 
+    private GameConstants() {
+        throw new IllegalStateException("Constants class");
+    }
+
     //region Tiles
 
     public static final int TOTAL_TILES = 19;
