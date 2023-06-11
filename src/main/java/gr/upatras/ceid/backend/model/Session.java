@@ -1,5 +1,6 @@
 package gr.upatras.ceid.backend.model;
 
+import gr.upatras.ceid.backend.enums.SessionStatus;
 import gr.upatras.ceid.backend.exception.notfound.PlayerNotFoundException;
 import lombok.Data;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -11,12 +12,12 @@ import java.util.Objects;
 @Document(collection = "sessions")
 public class Session {
 
-    private String id;
+    private final String id;
+    private final Integer slots;
     private Board board;
     private Bank bank;
     private Round round;
-    private Boolean active;
-    private Integer numberOfPlayers;
+    private SessionStatus status;
     private List<Player> players;
 
     public Player getPlayer(String playerId) {
