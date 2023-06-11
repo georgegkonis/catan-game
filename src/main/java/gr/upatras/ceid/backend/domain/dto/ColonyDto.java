@@ -1,4 +1,4 @@
 package gr.upatras.ceid.backend.domain.dto;
 
-public record ResourceCardDto() {
+public record ColonyDto() {
 }

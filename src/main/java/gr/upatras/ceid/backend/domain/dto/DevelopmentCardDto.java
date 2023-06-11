@@ -1,4 +1,4 @@
 package gr.upatras.ceid.backend.domain.dto;
 
-public class DevelopmentCardDto {
+public record DevelopmentCardDto() {
 }
