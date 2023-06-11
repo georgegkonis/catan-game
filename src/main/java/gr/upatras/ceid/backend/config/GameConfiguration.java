@@ -19,8 +19,7 @@ public class GameConfiguration {
     @Bean
     CommandLineRunner runner(SessionRepository repository) {
         return args -> {
-            Session entity = new Session();
-            repository.insert(entity);
+
         };
     }
 }
