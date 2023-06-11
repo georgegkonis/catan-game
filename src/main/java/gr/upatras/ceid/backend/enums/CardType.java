@@ -5,7 +5,7 @@ import gr.upatras.ceid.backend.constants.GameConstants;
 /**
  * Enumerates the development cards of the game.
  */
-public enum Type {
+public enum CardType {
     ROAD_BUILDING, VICTORY_POINT, YEAR_OF_PLENTY, MONOPOLY, KNIGHT;
 
     public int getQuantity() {

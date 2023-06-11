@@ -3,7 +3,7 @@ package gr.upatras.ceid.backend.util;
 import gr.upatras.ceid.backend.constants.GameConstants;
 import gr.upatras.ceid.backend.enums.Color;
 import gr.upatras.ceid.backend.enums.Resource;
-import gr.upatras.ceid.backend.enums.Type;
+import gr.upatras.ceid.backend.enums.CardType;
 import gr.upatras.ceid.backend.model.Bank;
 import gr.upatras.ceid.backend.model.DevelopmentCard;
 import gr.upatras.ceid.backend.model.ResourceCard;
@@ -12,7 +12,6 @@ import gr.upatras.ceid.backend.model.colony.City;
 import gr.upatras.ceid.backend.model.colony.Settlement;
 import gr.upatras.ceid.backend.provider.IdProvider;
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -75,7 +74,7 @@ public class BankInitializer {
     private List<DevelopmentCard> createDevelopmentCards() {
         var cards = new ArrayList<DevelopmentCard>();
 
-        for (Type type : Type.values()) {
+        for (CardType type : CardType.values()) {
             for (int i = 0; i < type.getQuantity(); i++) {
                 var card = new DevelopmentCard(idProvider.generateId(), type);
                 cards.add(card);

@@ -6,7 +6,7 @@ import gr.upatras.ceid.backend.domain.request.buildings.ConstructSettlementReque
 import gr.upatras.ceid.backend.domain.response.building.GetCitySlotsResponse;
 import gr.upatras.ceid.backend.domain.response.building.GetRoadSlotsResponse;
 import gr.upatras.ceid.backend.domain.response.building.GetSettlementSlotsResponse;
-import gr.upatras.ceid.backend.service.BuildingsService;
+import gr.upatras.ceid.backend.service.BoardService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,18 +14,18 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/sessions/{sessionId}/buildings")
+@RequestMapping("api/v1/sessions/{sessionId}/board")
 @AllArgsConstructor
-public class BuildingsController {
+public class BoardController {
 
-    private final BuildingsService buildingsService;
+    private final BoardService boardService;
 
     @GetMapping("/road-slots")
     public ResponseEntity<GetRoadSlotsResponse> getRoadSlots(
             @PathVariable String sessionId,
             @RequestParam String playerId) {
 
-        List<String> nodeIds = buildingsService.getRoadConstructionSlots(sessionId, playerId);
+        List<String> nodeIds = boardService.getRoadConstructionSlots(sessionId, playerId);
 
         GetRoadSlotsResponse response = new GetRoadSlotsResponse(nodeIds);
 
@@ -37,7 +37,7 @@ public class BuildingsController {
             @PathVariable String sessionId,
             @RequestParam String playerId) {
 
-        List<String> settlementIds = buildingsService.getSettlementConstructionSlots(sessionId, playerId);
+        List<String> settlementIds = boardService.getSettlementConstructionSlots(sessionId, playerId);
 
         GetSettlementSlotsResponse response = new GetSettlementSlotsResponse(settlementIds);
 
@@ -49,7 +49,7 @@ public class BuildingsController {
             @PathVariable String sessionId,
             @RequestParam String playerId) {
 
-        List<String> cityIds = buildingsService.getCityConstructionSlots(sessionId, playerId);
+        List<String> cityIds = boardService.getCityConstructionSlots(sessionId, playerId);
 
         GetCitySlotsResponse response = new GetCitySlotsResponse(cityIds);
 
@@ -61,7 +61,7 @@ public class BuildingsController {
             @PathVariable String sessionId,
             @RequestBody ConstructRoadRequest request) {
 
-        buildingsService.constructRoad(sessionId, request.playerId(), request.edgeId());
+        boardService.constructRoad(sessionId, request.playerId(), request.edgeId());
 
         return ResponseEntity.noContent().build();
     }
@@ -71,7 +71,7 @@ public class BuildingsController {
             @PathVariable String sessionId,
             @RequestBody ConstructSettlementRequest request) {
 
-        buildingsService.constructSettlement(sessionId, request.playerId(), request.nodeId());
+        boardService.constructSettlement(sessionId, request.playerId(), request.nodeId());
 
         return ResponseEntity.noContent().build();
     }
@@ -81,7 +81,7 @@ public class BuildingsController {
             @PathVariable String sessionId,
             @RequestBody ConstructCityRequest request) {
 
-        buildingsService.constructCity(sessionId, request.playerId(), request.nodeId());
+        boardService.constructCity(sessionId, request.playerId(), request.nodeId());
 
         return ResponseEntity.noContent().build();
     }

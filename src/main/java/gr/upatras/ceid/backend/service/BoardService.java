@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class BuildingsService {
+public class BoardService {
 
     private final SessionsService sessionsService;
 

@@ -5,7 +5,6 @@ import gr.upatras.ceid.backend.domain.request.sessions.CreateSessionRequest;
 import gr.upatras.ceid.backend.domain.response.session.CreatePlayerResponse;
 import gr.upatras.ceid.backend.domain.response.session.CreateSessionResponse;
 import gr.upatras.ceid.backend.domain.response.session.GetSessionResponse;
-import gr.upatras.ceid.backend.domain.response.session.GetAllSessionsResponse;
 import gr.upatras.ceid.backend.service.SessionsService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -21,19 +20,17 @@ public class SessionsController {
     @GetMapping("/{sessionId}")
     public ResponseEntity<GetSessionResponse> getSession(
             @PathVariable String sessionId) {
-
         var session = sessionsService.getSession(sessionId);
 
-        var response = new GetSessionResponse();
-
-        return ResponseEntity.ok().body(response);
-    }
-
-    @GetMapping()
-    public ResponseEntity<GetAllSessionsResponse> getAllSessions() {
-        var sessions = sessionsService.getSessions();
-
-        var response = new GetAllSessionsResponse();
+        // TODO: Need to add automapper
+        var response = new GetSessionResponse(
+                session.getId(),
+                null,
+                null,
+                null,
+                session.getStatus(),
+                null
+        );
 
         return ResponseEntity.ok().body(response);
     }
@@ -43,8 +40,11 @@ public class SessionsController {
             @RequestBody CreateSessionRequest request) {
         var session = sessionsService.createSession(request);
 
-        var response = new CreateSessionResponse(session.getId());
-
+        var response = new CreateSessionResponse(
+                session.getId(),
+                session.getSlots(),
+                session.getStatus()
+        );
         return ResponseEntity.ok().body(response);
     }
 
@@ -61,6 +61,14 @@ public class SessionsController {
                 player.getColor()
         );
         return ResponseEntity.ok().body(response);
+    }
+
+    @PatchMapping("/{sessionId}/start")
+    public ResponseEntity<Void> startSession(
+            @PathVariable String sessionId) {
+        sessionsService.startSession(sessionId);
+
+        return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("/{sessionId}")

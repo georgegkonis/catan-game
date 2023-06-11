@@ -1,6 +1,11 @@
 package gr.upatras.ceid.backend.domain.response.session;
 
-// TODO: Implement
-public record CreateSessionResponse(String id) {
+import gr.upatras.ceid.backend.enums.SessionStatus;
 
+public record CreateSessionResponse(
+        String id,
+        Integer slots,
+        SessionStatus status
+
+) {
 }
