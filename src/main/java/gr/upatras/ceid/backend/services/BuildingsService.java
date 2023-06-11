@@ -1,7 +1,6 @@
 package gr.upatras.ceid.backend.services;
 
 import gr.upatras.ceid.backend.enums.Color;
-import gr.upatras.ceid.backend.exceptions.notfound.SessionNotFoundException;
 import gr.upatras.ceid.backend.models.*;
 import gr.upatras.ceid.backend.models.colony.City;
 import gr.upatras.ceid.backend.models.colony.Settlement;

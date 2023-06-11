@@ -1,7 +1,7 @@
 package gr.upatras.ceid.backend.controllers;
 
-import gr.upatras.ceid.backend.domain.requests.CreatePlayerRequest;
-import gr.upatras.ceid.backend.domain.requests.CreateSessionRequest;
+import gr.upatras.ceid.backend.domain.requests.sessions.CreatePlayerRequest;
+import gr.upatras.ceid.backend.domain.requests.sessions.CreateSessionRequest;
 import gr.upatras.ceid.backend.domain.responses.session.CreatePlayerResponse;
 import gr.upatras.ceid.backend.domain.responses.session.CreateSessionResponse;
 import gr.upatras.ceid.backend.domain.responses.session.GetSessionResponse;

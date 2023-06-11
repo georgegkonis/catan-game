@@ -1,7 +1,7 @@
 package gr.upatras.ceid.backend.services;
 
-import gr.upatras.ceid.backend.domain.requests.CreatePlayerRequest;
-import gr.upatras.ceid.backend.domain.requests.CreateSessionRequest;
+import gr.upatras.ceid.backend.domain.requests.sessions.CreatePlayerRequest;
+import gr.upatras.ceid.backend.domain.requests.sessions.CreateSessionRequest;
 import gr.upatras.ceid.backend.enums.Effect;
 import gr.upatras.ceid.backend.enums.Resource;
 import gr.upatras.ceid.backend.exceptions.notfound.SessionNotFoundException;

@@ -1,6 +1,11 @@
 package gr.upatras.ceid.backend.controllers;
 
-import gr.upatras.ceid.backend.domain.responses.building.*;
+import gr.upatras.ceid.backend.domain.requests.buildings.ConstructCityRequest;
+import gr.upatras.ceid.backend.domain.requests.buildings.ConstructRoadRequest;
+import gr.upatras.ceid.backend.domain.requests.buildings.ConstructSettlementRequest;
+import gr.upatras.ceid.backend.domain.responses.building.GetCitySlotsResponse;
+import gr.upatras.ceid.backend.domain.responses.building.GetRoadSlotsResponse;
+import gr.upatras.ceid.backend.domain.responses.building.GetSettlementSlotsResponse;
 import gr.upatras.ceid.backend.services.BuildingsService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
