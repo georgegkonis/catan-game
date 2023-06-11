@@ -3,19 +3,16 @@ package gr.upatras.ceid.backend.services;
 import gr.upatras.ceid.backend.domain.requests.CreatePlayerRequest;
 import gr.upatras.ceid.backend.domain.requests.CreateSessionRequest;
 import gr.upatras.ceid.backend.enums.Effect;
-import gr.upatras.ceid.backend.enums.NumberToken;
 import gr.upatras.ceid.backend.enums.Resource;
-import gr.upatras.ceid.backend.enums.Terrain;
-import gr.upatras.ceid.backend.exceptions.SessionNotFoundException;
+import gr.upatras.ceid.backend.exceptions.notfound.SessionNotFoundException;
 import gr.upatras.ceid.backend.models.*;
 import gr.upatras.ceid.backend.providers.IdProvider;
 import gr.upatras.ceid.backend.repositories.SessionRepository;
-import gr.upatras.ceid.backend.util.BoardGenerator;
+import gr.upatras.ceid.backend.utilities.BoardGenerator;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 @AllArgsConstructor
@@ -27,7 +24,7 @@ public class SessionService {
 
     public Session getSession(String id) throws SessionNotFoundException {
         return repository.findById(id)
-                .orElseThrow(() -> new SessionNotFoundException(id));
+                .orElseThrow(SessionNotFoundException::new);
     }
 
     public List<Session> getSessions() {
@@ -38,15 +35,19 @@ public class SessionService {
         Session session = new Session();
 
         session.setId(idProvider.generateId());
+        session.setBoard(boardGenerator.generateBoard());
         session.setBank(createBank());
-        session.setBoard(createBoard(request.dessertCentered()));
         session.setPlayers(new ArrayList<>(request.numberOfPlayers()));
 
         return repository.save(session);
     }
 
-    private Board createBoard(Boolean centeredDessert) {
-        return boardGenerator.generateBoard();
+    public Session updateSession(Session session) {
+        return repository.save(session);
+    }
+
+    public void deleteSession(String id) {
+        repository.deleteById(id);
     }
 
     private Bank createBank() {
@@ -98,9 +99,5 @@ public class SessionService {
         repository.save(session);
 
         return player;
-    }
-
-    public void deleteSession(String id) {
-        repository.deleteById(id);
     }
 }

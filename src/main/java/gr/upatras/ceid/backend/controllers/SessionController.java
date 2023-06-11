@@ -2,11 +2,10 @@ package gr.upatras.ceid.backend.controllers;
 
 import gr.upatras.ceid.backend.domain.requests.CreatePlayerRequest;
 import gr.upatras.ceid.backend.domain.requests.CreateSessionRequest;
-import gr.upatras.ceid.backend.domain.responses.CreatePlayerResponse;
-import gr.upatras.ceid.backend.domain.responses.CreateSessionResponse;
-import gr.upatras.ceid.backend.domain.responses.GetSessionResponse;
-import gr.upatras.ceid.backend.domain.responses.GetSessionsResponse;
-import gr.upatras.ceid.backend.exceptions.SessionNotFoundException;
+import gr.upatras.ceid.backend.domain.responses.session.CreatePlayerResponse;
+import gr.upatras.ceid.backend.domain.responses.session.CreateSessionResponse;
+import gr.upatras.ceid.backend.domain.responses.session.GetSessionResponse;
+import gr.upatras.ceid.backend.domain.responses.session.GetSessionsResponse;
 import gr.upatras.ceid.backend.services.SessionService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -41,7 +40,7 @@ public class SessionController {
     public ResponseEntity<CreateSessionResponse> add(@RequestBody CreateSessionRequest request) {
         var session = sessionService.createSession(request);
 
-        var response = new CreateSessionResponse();
+        var response = new CreateSessionResponse(session.getId());
 
         return ResponseEntity.ok().body(response);
     }
@@ -56,7 +55,13 @@ public class SessionController {
                 player.getName(),
                 player.getColor()
         );
-
         return ResponseEntity.ok().body(response);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable String id) {
+        sessionService.deleteSession(id);
+
+        return ResponseEntity.ok().build();
     }
 }
