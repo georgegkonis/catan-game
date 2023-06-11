@@ -1,9 +1,9 @@
 package gr.upatras.ceid.backend.util;
 
 import gr.upatras.ceid.backend.constants.GameConstants;
+import gr.upatras.ceid.backend.enums.CardType;
 import gr.upatras.ceid.backend.enums.Color;
 import gr.upatras.ceid.backend.enums.Resource;
-import gr.upatras.ceid.backend.enums.CardType;
 import gr.upatras.ceid.backend.model.Bank;
 import gr.upatras.ceid.backend.model.DevelopmentCard;
 import gr.upatras.ceid.backend.model.ResourceCard;
@@ -15,7 +15,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 

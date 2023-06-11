@@ -10,7 +10,9 @@ import gr.upatras.ceid.backend.provider.IdProvider;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 @Component
 @AllArgsConstructor

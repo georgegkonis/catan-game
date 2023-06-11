@@ -5,9 +5,7 @@ import org.springframework.stereotype.Component;
 import java.util.Random;
 import java.util.stream.IntStream;
 
-import static gr.upatras.ceid.backend.constants.GameConstants.NUMBER_OF_DICE;
-import static gr.upatras.ceid.backend.constants.GameConstants.MIN_DIE_VALUE;
-import static gr.upatras.ceid.backend.constants.GameConstants.MAX_DIE_VALUE;
+import static gr.upatras.ceid.backend.constants.GameConstants.*;
 
 @Component
 public class DiceSimulator {

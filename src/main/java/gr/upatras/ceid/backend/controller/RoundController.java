@@ -19,19 +19,19 @@ public class RoundController {
     }
 
     @PatchMapping("/start")
-    public ResponseEntity<?> startRound(@PathVariable String sessionId){
+    public ResponseEntity<?> startRound(@PathVariable String sessionId) {
 
         throw new UnsupportedOperationException("Not implemented yet");
     }
 
     @PatchMapping("/next-phase")
-    public ResponseEntity<?> nextRoundPhase(@PathVariable String sessionId){
+    public ResponseEntity<?> nextRoundPhase(@PathVariable String sessionId) {
 
         throw new UnsupportedOperationException("Not implemented yet");
     }
 
     @PatchMapping("/end")
-    public ResponseEntity<?> endRound(@PathVariable String sessionId){
+    public ResponseEntity<?> endRound(@PathVariable String sessionId) {
 
         throw new UnsupportedOperationException("Not implemented yet");
     }

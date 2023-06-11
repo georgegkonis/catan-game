@@ -1,6 +1,7 @@
 package gr.upatras.ceid.backend.service;
 
-import gr.upatras.ceid.backend.model.*;
+import gr.upatras.ceid.backend.model.Edge;
+import gr.upatras.ceid.backend.model.Node;
 import gr.upatras.ceid.backend.model.colony.Colony;
 import gr.upatras.ceid.backend.model.colony.Settlement;
 import lombok.AllArgsConstructor;
