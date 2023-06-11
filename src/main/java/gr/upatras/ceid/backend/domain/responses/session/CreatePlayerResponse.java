@@ -1,4 +1,4 @@
-package gr.upatras.ceid.backend.domain.responses;
+package gr.upatras.ceid.backend.domain.responses.session;
 
 import gr.upatras.ceid.backend.enums.Color;
 
