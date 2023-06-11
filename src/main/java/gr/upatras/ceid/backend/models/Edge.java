@@ -2,14 +2,15 @@ package gr.upatras.ceid.backend.models;
 
 import lombok.Data;
 
+import java.util.Objects;
+
 @Data
 public class Edge {
+
     private String id;
-    private Long node1Id;
-    private Long node2Id;
+    private String node1Id;
+    private String node2Id;
     private Road road;
-    private Double x;
-    private Double y;
 
     public Edge(Node node1, Node node2) {
         this.node1Id = node1.getId();
@@ -18,5 +19,15 @@ public class Edge {
 
     public boolean hasRoad() {
         return road != null;
+    }
+
+    public boolean hasNode(String nodeId) {
+        return Objects.equals(nodeId, node1Id) ||
+               Objects.equals(nodeId, node2Id);
+    }
+
+    public String getOtherNodeId(String nodeId) {
+        if (!hasNode(nodeId)) return null;
+        return Objects.equals(node1Id, nodeId) ? node2Id : node1Id;
     }
 }
