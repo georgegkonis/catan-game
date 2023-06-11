@@ -1,6 +1,6 @@
 package gr.upatras.ceid.backend.controller;
 
-import gr.upatras.ceid.backend.domain.request.sessions.CreatePlayerRequest;
+import gr.upatras.ceid.backend.domain.request.player.CreatePlayerRequest;
 import gr.upatras.ceid.backend.service.PlayerService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -22,16 +22,20 @@ public class PlayerController {
     }
 
     @GetMapping("/{playerId}")
-    public ResponseEntity<?> getPlayer(
+    public ResponseEntity<?> get(
             @PathVariable String sessionId,
             @PathVariable String playerId) {
+
+        playerService.getPlayer(sessionId, playerId);
 
         throw new UnsupportedOperationException("Not implemented yet");
     }
 
-    @GetMapping
-    public ResponseEntity<?> getPlayers(
+    @GetMapping("/all")
+    public ResponseEntity<?> getAll(
             @PathVariable String sessionId) {
+
+        playerService.getPlayers(sessionId);
 
         throw new UnsupportedOperationException("Not implemented yet");
     }
@@ -39,9 +43,11 @@ public class PlayerController {
     //region Resource Cards
 
     @GetMapping("{playerId}/resource-cards")
-    public ResponseEntity<?> getPlayerResourceCards(
+    public ResponseEntity<?> getResourceCards(
             @PathVariable String sessionId,
             @PathVariable String playerId) {
+
+        playerService.getPlayerResourceCards(sessionId, playerId);
 
         throw new UnsupportedOperationException("Not implemented yet");
     }
@@ -52,6 +58,8 @@ public class PlayerController {
             @PathVariable String playerId,
             @RequestParam String cardId) {
 
+        playerService.addResourceCard(sessionId, playerId, cardId);
+
         throw new UnsupportedOperationException("Not implemented yet");
     }
 
@@ -60,9 +68,11 @@ public class PlayerController {
     //region Development Cards
 
     @GetMapping("{playerId}/development-cards")
-    public ResponseEntity<?> getPlayerDevelopmentCards(
+    public ResponseEntity<?> getDevelopmentCards(
             @PathVariable String sessionId,
             @PathVariable String playerId) {
+
+        playerService.getPlayerDevelopmentCards(sessionId, playerId);
 
         throw new UnsupportedOperationException("Not implemented yet");
     }
@@ -73,14 +83,18 @@ public class PlayerController {
             @PathVariable String playerId,
             @RequestParam String cardId) {
 
+        playerService.addDevelopmentCard(sessionId, playerId, cardId);
+
         throw new UnsupportedOperationException("Not implemented yet");
     }
 
     @PatchMapping("{playerId}/development-cards/{cardId}")
-    public ResponseEntity<?> playPlayerDevelopmentCard(
+    public ResponseEntity<?> playDevelopmentCard(
             @PathVariable String sessionId,
             @PathVariable String playerId,
             @PathVariable String cardId) {
+
+        playerService.playDevelopmentCard(sessionId, playerId, cardId);
 
         throw new UnsupportedOperationException("Not implemented yet");
     }
@@ -88,9 +102,11 @@ public class PlayerController {
     //endregion
 
     @GetMapping("{playerId}/victory-points")
-    public ResponseEntity<?> countPlayerVictoryPoints(
+    public ResponseEntity<?> countVictoryPoints(
             @PathVariable String sessionId,
             @PathVariable String playerId) {
+
+        playerService.countVictoryPoints(sessionId, playerId);
 
         throw new UnsupportedOperationException("Not implemented yet");
     }

@@ -1,7 +1,7 @@
 package gr.upatras.ceid.backend.service;
 
-import gr.upatras.ceid.backend.domain.request.sessions.CreatePlayerRequest;
-import gr.upatras.ceid.backend.domain.request.sessions.CreateSessionRequest;
+import gr.upatras.ceid.backend.domain.request.player.CreatePlayerRequest;
+import gr.upatras.ceid.backend.domain.request.session.CreateSessionRequest;
 import gr.upatras.ceid.backend.enums.SessionStatus;
 import gr.upatras.ceid.backend.exception.notfound.SessionNotFoundException;
 import gr.upatras.ceid.backend.exception.operation.NotEnoughPlayersException;

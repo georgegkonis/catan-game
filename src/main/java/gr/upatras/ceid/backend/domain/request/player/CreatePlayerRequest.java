@@ -1,4 +1,4 @@
-package gr.upatras.ceid.backend.domain.request.sessions;
+package gr.upatras.ceid.backend.domain.request.player;
 
 import gr.upatras.ceid.backend.enums.Color;
 

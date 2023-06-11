@@ -167,4 +167,8 @@ public class BoardService {
                 .filter(node -> otherNodes.stream().anyMatch(node::isAdjacentTo))
                 .toList();
     }
+
+    public void moveRobber(String sessionId, String tileId) {
+        throw new UnsupportedOperationException("Not implemented yet.");
+    }
 }

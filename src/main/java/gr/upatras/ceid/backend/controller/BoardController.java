@@ -85,4 +85,14 @@ public class BoardController {
 
         return ResponseEntity.noContent().build();
     }
+
+    @PatchMapping("/robber")
+    public ResponseEntity<?> moveRobber(
+            @PathVariable String sessionId,
+            @RequestParam String tileId) {
+
+        boardService.moveRobber(sessionId, tileId);
+
+        return ResponseEntity.noContent().build();
+    }
 }
