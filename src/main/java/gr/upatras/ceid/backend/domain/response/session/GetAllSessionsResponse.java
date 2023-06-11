@@ -1,6 +1,6 @@
 package gr.upatras.ceid.backend.domain.response.session;
 
 // TODO: Implement
-public record GetSessionsResponse() {
+public record GetAllSessionsResponse() {
 
 }

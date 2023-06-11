@@ -5,7 +5,7 @@ import gr.upatras.ceid.backend.domain.request.sessions.CreateSessionRequest;
 import gr.upatras.ceid.backend.domain.response.session.CreatePlayerResponse;
 import gr.upatras.ceid.backend.domain.response.session.CreateSessionResponse;
 import gr.upatras.ceid.backend.domain.response.session.GetSessionResponse;
-import gr.upatras.ceid.backend.domain.response.session.GetSessionsResponse;
+import gr.upatras.ceid.backend.domain.response.session.GetAllSessionsResponse;
 import gr.upatras.ceid.backend.service.SessionsService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -18,26 +18,29 @@ public class SessionsController {
 
     private final SessionsService sessionsService;
 
-    @GetMapping("/{id}")
-    public ResponseEntity<GetSessionResponse> get(@PathVariable String id) {
-        var session = sessionsService.getSession(id);
+    @GetMapping("/{sessionId}")
+    public ResponseEntity<GetSessionResponse> getSession(
+            @PathVariable String sessionId) {
 
-        var response = new GetSessionResponse(session.getId());
+        var session = sessionsService.getSession(sessionId);
+
+        var response = new GetSessionResponse();
 
         return ResponseEntity.ok().body(response);
     }
 
-    @GetMapping("/all")
-    public ResponseEntity<GetSessionsResponse> getAll() {
+    @GetMapping()
+    public ResponseEntity<GetAllSessionsResponse> getAllSessions() {
         var sessions = sessionsService.getSessions();
 
-        var response = new GetSessionsResponse();
+        var response = new GetAllSessionsResponse();
 
         return ResponseEntity.ok().body(response);
     }
 
     @PostMapping()
-    public ResponseEntity<CreateSessionResponse> add(@RequestBody CreateSessionRequest request) {
+    public ResponseEntity<CreateSessionResponse> addSession(
+            @RequestBody CreateSessionRequest request) {
         var session = sessionsService.createSession(request);
 
         var response = new CreateSessionResponse(session.getId());
@@ -45,9 +48,11 @@ public class SessionsController {
         return ResponseEntity.ok().body(response);
     }
 
-    @PatchMapping("/{id}/players")
-    public ResponseEntity<CreatePlayerResponse> addPlayer(@PathVariable String id, @RequestBody CreatePlayerRequest request) {
-        var player = sessionsService.createPlayer(id, request);
+    @PatchMapping("/{sessionId}/players")
+    public ResponseEntity<CreatePlayerResponse> addPlayerToSession(
+            @PathVariable String sessionId,
+            @RequestBody CreatePlayerRequest request) {
+        var player = sessionsService.createPlayer(sessionId, request);
 
         var response = new CreatePlayerResponse(
                 player.getId(),
@@ -58,9 +63,10 @@ public class SessionsController {
         return ResponseEntity.ok().body(response);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable String id) {
-        sessionsService.deleteSession(id);
+    @DeleteMapping("/{sessionId}")
+    public ResponseEntity<Void> deleteSession(
+            @PathVariable String sessionId) {
+        sessionsService.deleteSession(sessionId);
 
         return ResponseEntity.ok().build();
     }
