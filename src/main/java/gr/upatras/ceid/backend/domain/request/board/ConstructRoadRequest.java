@@ -1,4 +1,4 @@
-package gr.upatras.ceid.backend.domain.request.buildings;
+package gr.upatras.ceid.backend.domain.request.board;
 
 public record ConstructRoadRequest(
         String playerId,

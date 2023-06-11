@@ -2,7 +2,7 @@ package gr.upatras.ceid.backend.jwt;
 
 import java.io.IOException;
 
-import gr.upatras.ceid.backend.service.UsersService;
+import gr.upatras.ceid.backend.service.UserService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -23,7 +23,7 @@ public class AuthTokenFilter extends OncePerRequestFilter {
     private JwtUtils jwtUtils;
 
     @Autowired
-    private UsersService userDetailsService;
+    private UserService userDetailsService;
 
     private static final Logger logger = LoggerFactory.getLogger(AuthTokenFilter.class);
 

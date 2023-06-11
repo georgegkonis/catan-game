@@ -12,10 +12,10 @@ import java.util.List;
 @AllArgsConstructor
 public class BoardService {
 
-    private final SessionsService sessionsService;
+    private final SessionService sessionService;
 
     public List<Colony> getColonies(String sessionId, String tileId) {
-        var session = sessionsService.getSession(sessionId);
+        var session = sessionService.getSession(sessionId);
         var nodes = session.getBoard().getNodes();
 
         return nodes.stream()
@@ -26,7 +26,7 @@ public class BoardService {
     }
 
     public List<Colony> getColonies(String sessionId, String tileId, String playerId) {
-        var session = sessionsService.getSession(sessionId);
+        var session = sessionService.getSession(sessionId);
 
         var playerColor = session.getPlayer(playerId).getColor();
         var settlements = getColonies(sessionId, tileId);
@@ -37,7 +37,7 @@ public class BoardService {
     }
 
     public List<String> getRoadConstructionSlots(String sessionId, String playerId) {
-        var session = sessionsService.getSession(sessionId);
+        var session = sessionService.getSession(sessionId);
 
         var board = session.getBoard();
         var playerColor = session.getPlayer(playerId).getColor();
@@ -62,7 +62,7 @@ public class BoardService {
     }
 
     public List<String> getSettlementConstructionSlots(String sessionId, String playerId) {
-        var session = sessionsService.getSession(sessionId);
+        var session = sessionService.getSession(sessionId);
 
         var board = session.getBoard();
         var playerColor = session.getPlayer(playerId).getColor();
@@ -95,7 +95,7 @@ public class BoardService {
     }
 
     public List<String> getCityConstructionSlots(String sessionId, String playerId) {
-        var session = sessionsService.getSession(sessionId);
+        var session = sessionService.getSession(sessionId);
 
         var board = session.getBoard();
         var playerColor = session.getPlayer(playerId).getColor();
@@ -112,7 +112,7 @@ public class BoardService {
     }
 
     public void constructRoad(String sessionId, String playerId, String edgeId) {
-        var session = sessionsService.getSession(sessionId);
+        var session = sessionService.getSession(sessionId);
 
         var playerColor = session.getPlayer(playerId).getColor();
         var edge = session.getBoard().getEdge(edgeId);
@@ -120,11 +120,11 @@ public class BoardService {
 
         edge.setRoad(road);
 
-        sessionsService.updateSession(session);
+        sessionService.updateSession(session);
     }
 
     public void constructSettlement(String sessionId, String playerId, String nodeId) {
-        var session = sessionsService.getSession(sessionId);
+        var session = sessionService.getSession(sessionId);
 
         var playerColor = session.getPlayer(playerId).getColor();
         var node = session.getBoard().getNode(nodeId);
@@ -132,11 +132,11 @@ public class BoardService {
 
         node.setColony(settlement);
 
-        sessionsService.updateSession(session);
+        sessionService.updateSession(session);
     }
 
     public void constructCity(String sessionId, String playerId, String nodeId) {
-        var session = sessionsService.getSession(sessionId);
+        var session = sessionService.getSession(sessionId);
 
         var playerColor = session.getPlayer(playerId).getColor();
         var node = session.getBoard().getNode(nodeId);
@@ -146,7 +146,7 @@ public class BoardService {
         session.getBank().getSettlements().add(settlement);
         node.setColony(city);
 
-        sessionsService.updateSession(session);
+        sessionService.updateSession(session);
     }
 
     private static List<Edge> filterEdgesConnectedToNodes(List<Edge> edges, List<Node> nodes) {

@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Getter
-public class UserDetailsBuilder implements UserDetails {
+public class UserDetailsFactory implements UserDetails {
     @Serial
     private static final long serialVersionUID = 1L;
 
@@ -24,7 +24,7 @@ public class UserDetailsBuilder implements UserDetails {
     private String password;
     private Collection<? extends GrantedAuthority> authorities;
 
-    public UserDetailsBuilder(String id, String username, String email, String password,
+    public UserDetailsFactory(String id, String username, String email, String password,
                               Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
         this.username = username;
@@ -33,12 +33,12 @@ public class UserDetailsBuilder implements UserDetails {
         this.authorities = authorities;
     }
 
-    public static UserDetailsBuilder build(User user) {
+    public static UserDetailsFactory create(User user) {
         List<GrantedAuthority> authorities = user.getRoles().stream()
                 .map(role -> new SimpleGrantedAuthority(role.getType().name()))
                 .collect(Collectors.toList());
 
-        return new UserDetailsBuilder(
+        return new UserDetailsFactory(
                 user.getId(),
                 user.getUsername(),
                 user.getEmail(),

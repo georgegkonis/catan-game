@@ -5,6 +5,7 @@ import lombok.Data;
 
 @Data
 public class Round {
+
     private Integer number;
     private RoundPhase phase;
     private Integer dice;

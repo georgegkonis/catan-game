@@ -1,10 +1,11 @@
 package gr.upatras.ceid.backend.model;
 
+import gr.upatras.ceid.backend.enums.EdgePosition;
+import gr.upatras.ceid.backend.enums.NodePosition;
 import gr.upatras.ceid.backend.enums.NumberToken;
 import gr.upatras.ceid.backend.enums.Terrain;
 import lombok.Data;
 
-import java.util.List;
 import java.util.Map;
 
 @Data
@@ -15,9 +16,8 @@ public class Tile {
     private Terrain terrain;
     private Integer row;
     private Integer col;
-    private List<Long> nodeIds;
-    private Map<String, Node> cornerNodes;
-    private Map<String, Edge> sideEdges;
+    private Map<NodePosition, String> nodeIds;
+    private Map<EdgePosition, String> edgeIds;
 
     public boolean hasNode(String nodeId) {
         return true;

@@ -15,6 +15,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 @Component
@@ -80,6 +82,7 @@ public class BankInitializer {
                 cards.add(card);
             }
         }
+        Collections.shuffle(cards);
         return cards;
     }
 
@@ -92,6 +95,7 @@ public class BankInitializer {
                 cards.add(card);
             }
         }
+        Collections.shuffle(cards);
         return cards;
     }
 }

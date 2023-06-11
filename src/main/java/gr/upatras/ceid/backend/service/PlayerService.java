@@ -5,5 +5,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class PlayersService {
+public class PlayerService {
+
+    private final SessionService sessionService;
 }

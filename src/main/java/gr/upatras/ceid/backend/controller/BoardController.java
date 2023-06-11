@@ -1,8 +1,8 @@
 package gr.upatras.ceid.backend.controller;
 
-import gr.upatras.ceid.backend.domain.request.buildings.ConstructCityRequest;
-import gr.upatras.ceid.backend.domain.request.buildings.ConstructRoadRequest;
-import gr.upatras.ceid.backend.domain.request.buildings.ConstructSettlementRequest;
+import gr.upatras.ceid.backend.domain.request.board.ConstructCityRequest;
+import gr.upatras.ceid.backend.domain.request.board.ConstructRoadRequest;
+import gr.upatras.ceid.backend.domain.request.board.ConstructSettlementRequest;
 import gr.upatras.ceid.backend.domain.response.building.GetCitySlotsResponse;
 import gr.upatras.ceid.backend.domain.response.building.GetRoadSlotsResponse;
 import gr.upatras.ceid.backend.domain.response.building.GetSettlementSlotsResponse;
@@ -57,7 +57,7 @@ public class BoardController {
     }
 
     @PatchMapping("/roads")
-    public ResponseEntity<Void> buildRoad(
+    public ResponseEntity<Void> constructRoad(
             @PathVariable String sessionId,
             @RequestBody ConstructRoadRequest request) {
 
@@ -67,7 +67,7 @@ public class BoardController {
     }
 
     @PatchMapping("/settlements")
-    public ResponseEntity<?> buildSettlement(
+    public ResponseEntity<?> constructSettlement(
             @PathVariable String sessionId,
             @RequestBody ConstructSettlementRequest request) {
 
@@ -77,7 +77,7 @@ public class BoardController {
     }
 
     @PatchMapping("/cities")
-    public ResponseEntity<?> buildCity(
+    public ResponseEntity<?> constructCity(
             @PathVariable String sessionId,
             @RequestBody ConstructCityRequest request) {
 

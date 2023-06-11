@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class GameConfiguration {
+public class GameConfig {
 
     @Bean
     public IdProvider<String> idProvider() {

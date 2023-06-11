@@ -2,7 +2,7 @@ package gr.upatras.ceid.backend.jwt;
 
 import java.util.Date;
 
-import gr.upatras.ceid.backend.factory.UserDetailsBuilder;
+import gr.upatras.ceid.backend.factory.UserDetailsFactory;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
@@ -36,7 +36,7 @@ public class JwtUtils {
         }
     }
 
-    public ResponseCookie generateJwtCookie(UserDetailsBuilder userPrincipal) {
+    public ResponseCookie generateJwtCookie(UserDetailsFactory userPrincipal) {
         String jwt = generateTokenFromUsername(userPrincipal.getUsername());
         ResponseCookie cookie = ResponseCookie.from(jwtCookie, jwt).path("/api").maxAge(24 * 60 * 60).httpOnly(true).build();
         return cookie;

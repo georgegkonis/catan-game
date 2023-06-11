@@ -5,7 +5,7 @@ import gr.upatras.ceid.backend.domain.request.sessions.CreateSessionRequest;
 import gr.upatras.ceid.backend.domain.response.session.CreatePlayerResponse;
 import gr.upatras.ceid.backend.domain.response.session.CreateSessionResponse;
 import gr.upatras.ceid.backend.domain.response.session.GetSessionResponse;
-import gr.upatras.ceid.backend.service.SessionsService;
+import gr.upatras.ceid.backend.service.SessionService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,14 +13,14 @@ import org.springframework.web.bind.annotation.*;
 @RestController()
 @RequestMapping("api/v1/sessions")
 @AllArgsConstructor
-public class SessionsController {
+public class SessionController {
 
-    private final SessionsService sessionsService;
+    private final SessionService sessionService;
 
     @GetMapping("/{sessionId}")
     public ResponseEntity<GetSessionResponse> getSession(
             @PathVariable String sessionId) {
-        var session = sessionsService.getSession(sessionId);
+        var session = sessionService.getSession(sessionId);
 
         // TODO: Need to add automapper
         var response = new GetSessionResponse(
@@ -38,7 +38,7 @@ public class SessionsController {
     @PostMapping()
     public ResponseEntity<CreateSessionResponse> addSession(
             @RequestBody CreateSessionRequest request) {
-        var session = sessionsService.createSession(request);
+        var session = sessionService.createSession(request);
 
         var response = new CreateSessionResponse(
                 session.getId(),
@@ -52,7 +52,7 @@ public class SessionsController {
     public ResponseEntity<CreatePlayerResponse> addPlayerToSession(
             @PathVariable String sessionId,
             @RequestBody CreatePlayerRequest request) {
-        var player = sessionsService.createPlayer(sessionId, request);
+        var player = sessionService.createPlayer(sessionId, request);
 
         var response = new CreatePlayerResponse(
                 player.getId(),
@@ -66,7 +66,7 @@ public class SessionsController {
     @PatchMapping("/{sessionId}/start")
     public ResponseEntity<Void> startSession(
             @PathVariable String sessionId) {
-        sessionsService.startSession(sessionId);
+        sessionService.startSession(sessionId);
 
         return ResponseEntity.ok().build();
     }
@@ -74,7 +74,7 @@ public class SessionsController {
     @DeleteMapping("/{sessionId}")
     public ResponseEntity<Void> deleteSession(
             @PathVariable String sessionId) {
-        sessionsService.deleteSession(sessionId);
+        sessionService.deleteSession(sessionId);
 
         return ResponseEntity.ok().build();
     }

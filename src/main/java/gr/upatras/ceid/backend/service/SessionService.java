@@ -13,12 +13,9 @@ import gr.upatras.ceid.backend.util.BoardInitializer;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @AllArgsConstructor
 @Service
-public class SessionsService {
+public class SessionService {
 
     private final SessionRepository repository;
     private final IdProvider<String> idProvider;

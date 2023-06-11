@@ -2,7 +2,7 @@ package gr.upatras.ceid.backend.config;
 
 import gr.upatras.ceid.backend.jwt.AuthEntryPointJwt;
 import gr.upatras.ceid.backend.jwt.AuthTokenFilter;
-import gr.upatras.ceid.backend.service.UsersService;
+import gr.upatras.ceid.backend.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,7 +18,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @AllArgsConstructor
 public class WebSecurityConfig {
 
-    UsersService userDetailsService;
+    UserService userDetailsService;
     private AuthEntryPointJwt unauthorizedHandler;
 
     @Bean
