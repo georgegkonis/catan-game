@@ -65,9 +65,9 @@ public class GameConstants {
 
     //region Dice
 
-    public static final int TOTAL_DICE = 2;
-    public static final int DICE_MIN = 1;
-    public static final int DICE_MAX = 6;
+    public static final int NUMBER_OF_DICE = 2;
+    public static final int MIN_DIE_VALUE = 1;
+    public static final int MAX_DIE_VALUE = 6;
 
     //endregion
 
